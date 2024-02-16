@@ -1,0 +1,13 @@
+﻿<!DOCTYPE html>
+<html>
+@Html.Action("PartialHead", "Default")
+<body>
+    @Html.Action("PartialNavBar", "Default")
+
+    @RenderBody()
+
+    @Html.Action("PartialFooter", "Default")
+
+    @Html.Action("PartialScript", "Default")
+</body>
+</html>
