@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Ana Sayfa";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Templates/material_able-main-admin-tema/assets/css/font-awesome-n.min.css">
+
+<div class="pcoded-inner-content">
+    <div class="main-body">
+        <div class="page-wrapper">
+            <div class="page-body">
+                <div class="row">
+
+                    <div class="col-xl-4 col-md-12">
+                        <div class="card mat-stat-card">
+                            <div class="card-block">
+                                <div class="row align-items-center b-b-default">
+                                    <div class="col-sm-6 b-r-default p-b-20 p-t-20">
+                                        <div class="row align-items-center text-center">
+                                            <div class="col-4 p-r-0">
+                                                <i class="far fa-user text-c-purple f-24"></i>
+                                            </div>
+                                            <div class="col-8 p-l-0">
+                                                <h5>@ViewBag.ResimÇizmeCount</h5>
+                                                <p class="text-muted m-b-0">Resim Çizim</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 p-b-20 p-t-20">
+                                        <div class="row align-items-center text-center">
+                                            <div class="col-4 p-r-0">
+                                                <i class="fas fa-volume-down text-c-green f-24"></i>
+                                            </div>
+                                            <div class="col-8 p-l-0">
+                                                <h5>@ViewBag.AvgPrice</h5>
+                                                <p class="text-muted m-b-0">Ortalama Fiyat</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center">
+                                    <div class="col-sm-6 p-b-20 p-t-20 b-r-default">
+                                        <div class="row align-items-center text-center">
+                                            <div class="col-4 p-r-0">
+                                                <i class="far fa-file-alt text-c-red f-24"></i>
+                                            </div>
+                                            <div class="col-8 p-l-0">
+                                                <h5>@ViewBag.ToplamResimSayisi</h5>
+                                                <p class="text-muted m-b-0">Resimler</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 p-b-20 p-t-20">
+                                        <div class="row align-items-center text-center">
+                                            <div class="col-4 p-r-0">
+                                                <i class="far fa-envelope-open text-c-blue f-24"></i>
+                                            </div>
+                                            <div class="col-8 p-l-0">
+                                                <h5>@ViewBag.ToplamOkunmamisMesajSayisi</h5>
+                                                <p class="text-muted m-b-0">Okunmamış Mesajlar</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @* Google Charts *@
+                    <div id="chart_div"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Load the AJAX API-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', { 'packages': ['corechart'] });
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+            ['Bugün', @ViewBag.Bugun],
+            ['Dün', @ViewBag.Bugun1],
+            ['Önceki Gün', @ViewBag.Bugun2]
+        ]);
+
+        // Set chart options
+        var options = {
+            'title': 'Gelen Mesaj Sayısı',
+            'width': 400,
+            'height': 300
+        };
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+</script>

@@ -13,7 +13,6 @@ namespace KidKinder.Context
         public DbSet<AboutList> AboutLists { get; set; }
         public DbSet<BookASeat> BookASeats { get; set; }
         public DbSet<ClassRoom> ClassRooms { get; set; }
-        public DbSet<Communication> Communications { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Feature> Features { get; set; }
         public DbSet<MailSubscribe> MailSubscribes { get; set; }
@@ -23,5 +22,7 @@ namespace KidKinder.Context
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Natification> Natifications { get; set; }
+        public DbSet<Branch> Branches { get; set; }
+        public DbSet<Gallery> Galleries { get; set; }
     }
 }

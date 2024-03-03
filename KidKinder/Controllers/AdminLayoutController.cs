@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace KidKinder.Controllers
 {
+    [Authorize]
     public class AdminLayoutController : Controller
     {
         KidKinderContext context = new KidKinderContext();
@@ -47,6 +48,11 @@ namespace KidKinder.Controllers
         }
 
         public PartialViewResult PartialScript()
+        {
+            return PartialView();
+        }
+
+        public PartialViewResult PartialHeader()
         {
             return PartialView();
         }

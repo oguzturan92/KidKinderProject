@@ -1,0 +1,46 @@
+﻿@model KidKinder.Entities.AboutList
+@{
+    ViewBag.Title = "Hakkımızda Listesi Ekle";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="pcoded-inner-content">
+
+    <div class="main-body">
+        <div class="page-wrapper">
+
+            <div class="page-body">
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Yeni Hakkımızda Liste Girişi</h5>
+                                <span>Hakkımızda Liste ile ilgili verileri eksiksiz olarak doldurunuz.</span>
+                            </div>
+                            <div class="card-block">
+                                <form method="post">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Açıklama</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" name="Description" class="form-control">
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Hakkımızda Liste Kaydet</button>
+                                    <a href="/AboutList/AboutListList" class="btn btn-outline-dark">Geri</a>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="styleSelector">
+
+    </div>
+</div>

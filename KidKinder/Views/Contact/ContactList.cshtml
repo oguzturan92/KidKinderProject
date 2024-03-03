@@ -1,0 +1,67 @@
+﻿@model List<KidKinder.Entities.Contact>
+@{
+    ViewBag.Title = "Mesaj Listesi";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="pcoded-inner-content">
+    <!-- Main-body start -->
+    <div class="main-body">
+        <div class="page-wrapper">
+            <!-- Page-body start -->
+            <div class="page-body">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Mesaj Listesi Tablosu</h5>
+                        <span>Mesaj ile ilgili işlemleri yapabileceğiniz alandır.</span>
+                        <div class="card-header-right">
+                            <ul class="list-unstyled card-option">
+                                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                                <li><i class="fa fa-window-maximize full-card"></i></li>
+                                <li><i class="fa fa-minus minimize-card"></i></li>
+                                <li><i class="fa fa-refresh reload-card"></i></li>
+                                <li><i class="fa fa-trash close-card"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-block table-border-style">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Ad Soyad</th>
+                                        <th>Email</th>
+                                        <th>Okundu</th>
+                                        <th colspan="2"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.ContactId</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.SendDate</td>
+                                            @if (item.IsRead)
+                                            {
+                                                <td class="btn btn-success" style="border-radius:100px; padding:2px; margin:20px;">Evet</td>
+                                            }
+                                            else
+                                            {
+                                                <td class="btn btn-dark" style="border-radius:100px; padding:2px; margin:20px;">Hayır</td>
+                                            }
+                                            <td><a href="/Contact/DeleteContact/@item.ContactId" class="btn btn-danger">Sil</a></td>
+                                            <td><a href="/Contact/DetailContact/@item.ContactId" class="btn btn-dark">Detayı Gör</a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

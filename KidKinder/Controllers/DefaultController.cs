@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using KidKinder.Entities;
 using KidKinder.Context;
+using KidKinder.Models;
 
 namespace KidKinder.Controllers
 {
@@ -40,12 +41,17 @@ namespace KidKinder.Controllers
 
         public ActionResult PartialAbout()
         {
-            return PartialView();
+            var model = new AboutModel()
+            {
+                About = context.Abouts.FirstOrDefault(),
+                AboutLists = context.AboutLists.Take(3).ToList()
+            };
+            return PartialView(model);
         }
 
         public ActionResult PartialClassRooms()
         {
-            var values = context.ClassRooms.ToList();
+            var values = context.ClassRooms.OrderByDescending(i => i.ClassRoomId).Take(3).ToList();
             return PartialView(values);
         }
 
@@ -56,17 +62,20 @@ namespace KidKinder.Controllers
 
         public ActionResult PartialTeacher()
         {
-            return PartialView();
+            var values = context.Teachers.ToList();
+            return PartialView(values);
         }
 
         public ActionResult PartialTestimonial()
         {
-            return PartialView();
+            var values = context.Testimonials.ToList();
+            return PartialView(values);
         }
 
         public ActionResult PartialFooter()
         {
-            return PartialView();
+            var adres = context.Addresses.FirstOrDefault();
+            return PartialView(adres);
         }
 
         public ActionResult PartialScript()

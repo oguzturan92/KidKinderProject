@@ -25,6 +25,8 @@
 
                     <div class="pcoded-content">
 
+                        @Html.Action("PartialHeader", "AdminLayout")
+
                         @RenderBody()
 
                     </div>
@@ -37,6 +39,7 @@
     </div>
 
     @Html.Action("PartialScript", "AdminLayout")
+
 </body>
 
 </html>

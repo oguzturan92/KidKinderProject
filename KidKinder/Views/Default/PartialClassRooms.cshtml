@@ -5,17 +5,17 @@
     <div class="container">
         <div class="text-center pb-2">
             <p class="section-title px-5">
-                <span class="px-2">Popular Classes</span>
+                <span class="px-2">Popüler Sınıflar</span>
             </p>
-            <h1 class="mb-4">Classes for Your Kids</h1>
+            <h1 class="mb-4">Çocuklarınız İçin Sınıflar</h1>
         </div>
         <div class="row">
 
             @foreach (var item in Model)
             {
                 <div class="col-lg-4 mb-5">
-                <div class="card border-0 bg-light shadow-sm pb-2">
-                    <img class="card-img-top mb-2" src="~/Templates/kidkinder-1.0.0/img/class-1.jpg" alt="" />
+                <div class="card border-0 bg-light shadow-sm pb-2" style="height: 650px;">
+                    <img class="card-img-top mb-2" src="@item.ImageUrl" alt="" style="height:200px; width:100%; object-fit:cover;" />
                     <div class="card-body text-center">
                         <h4 class="card-title">@item.Title</h4>
                         <p class="card-text">
@@ -25,25 +25,25 @@
                     <div class="card-footer bg-transparent py-4 px-5">
                         <div class="row border-bottom">
                             <div class="col-6 py-1 text-right border-right">
-                                <strong>Age of Kids</strong>
+                                <strong>Yaş</strong>
                             </div>
                             <div class="col-6 py-1">@item.AgeOfKids</div>
                         </div>
                         <div class="row border-bottom">
                             <div class="col-6 py-1 text-right border-right">
-                                <strong>Total Seats</strong>
+                                <strong>Toplam Saat</strong>
                             </div>
                             <div class="col-6 py-1">@item.TotalSeats</div>
                         </div>
                         <div class="row border-bottom">
                             <div class="col-6 py-1 text-right border-right">
-                                <strong>Class Time</strong>
+                                <strong>Saatler</strong>
                             </div>
                             <div class="col-6 py-1">@item.ClassTime</div>
                         </div>
                         <div class="row">
                             <div class="col-6 py-1 text-right border-right">
-                                <strong>Tution Fee</strong>
+                                <strong>Fiyat</strong>
                             </div>
                             <div class="col-6 py-1">@item.Price₺ / Aylık</div>
                         </div>
